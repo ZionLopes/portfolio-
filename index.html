@@ -326,9 +326,9 @@
         
         .skills-track { display: flex; width: calc(280px * 24); animation: scroll-logos 45s linear infinite; align-items: center; }
         .skill-item { display: flex; align-items: center; gap: 1.2rem; margin: 0 45px; white-space: nowrap; opacity: 0.7; transition: all 0.3s; }
-        .skill-item img { height: 40px; width: 40px; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); object-fit: contain; }
+        .skill-item img { height: 40px; width: 40px; object-fit: contain; }
         .skill-item span { font-weight: 600; font-size: 1.2rem; color: var(--text-color); font-family: 'JetBrains Mono', monospace; letter-spacing: 1px;}
-        .skill-item:hover { opacity: 1; transform: scale(1.1) translateY(-5px); filter: drop-shadow(0 10px 15px rgba(14, 165, 233, 0.3)); }
+        .skill-item:hover { opacity: 1; transform: translateY(-5px); filter: drop-shadow(0 10px 15px rgba(14, 165, 233, 0.3)); }
         body.light-mode .skill-item { opacity: 0.9; filter: grayscale(100%); }
         body.light-mode .skill-item:hover { filter: grayscale(0%); filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1)); }
         body.dark-mode .invert-dark { filter: invert(1); }
@@ -351,11 +351,11 @@
         
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3rem; perspective: 1500px; }
         
-        .project-card { transform-style: preserve-3d; transition: opacity 0.4s; will-change: transform; position: relative; border-radius: 16px; }
+        .project-card { position: relative; border-radius: 16px; transition: opacity 0.4s; }
         .project-card.hidden { opacity: 0; display: none; }
         
         .project-card-inner {
-            position: relative; border-radius: 16px; overflow: hidden; transform: translateZ(20px);
+            position: relative; border-radius: 16px; overflow: hidden;
             background: var(--bg-dark); border: 1px solid var(--border-color); box-shadow: var(--shadow-glass); height: 100%; display: flex; flex-direction: column;
         }
         body.light-mode .project-card-inner { background: #fff; }
@@ -379,7 +379,7 @@
         .project-image-container::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, var(--bg-dark) 100%); z-index: 1; }
         body.light-mode .project-image-container::after { background: linear-gradient(to bottom, transparent 50%, #fff 100%); }
         
-        .project-image-container img { width: 100%; height: 100%; object-fit: cover; transition: filter 0.5s ease; filter: grayscale(20%); }
+        .project-image-container img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); }
         .project-card:hover .project-image-container img { filter: grayscale(0%); }
         
         .project-content { padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column; position: relative; z-index: 20; pointer-events: auto;}
@@ -388,14 +388,9 @@
         
         .project-link-wrapper { margin-top: auto; padding-top: 1rem;}
         .project-content a { 
-            color: var(--text-color); text-decoration: none; font-weight: 600; 
-            display: inline-flex; align-items: center; gap: 10px;
-            font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; letter-spacing: 1px;
-            transition: var(--transition-smooth); text-transform: uppercase;
+            color: var(--text-color); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 10px;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; letter-spacing: 1px; transition: var(--transition-smooth); text-transform: uppercase;
         }
-        .project-content a::before { content: ''; width: 30px; height: 1px; background: var(--accent); transition: width 0.3s;}
-        .project-content a:hover { color: var(--accent); }
-        .project-content a:hover::before { width: 50px; }
 
         .project-open-btn { 
             display: flex !important; align-items: center; justify-content: center; gap: 8px; width: 100%;
@@ -646,7 +641,7 @@
                         </div>
                         
                         <h1>Architecting Data Infrastructure</h1>
-                        <p>I'm Zion, a specialist in Cloud Computing, Big Data, and Database Management Systems. I focus on engineering highly scalable data pipelines, optimizing cloud architecture, and building robust, future-proof backend infrastructures that drive real enterprise value.</p>
+                        <p>I'm Zion, a specialist in Cloud Computing, Big Data, and Database Management Systems (DBMS). I focus on engineering highly scalable data pipelines, optimizing cloud architecture, and building robust, future-proof backend infrastructures that drive real enterprise value.</p>
                         <a href="#" class="btn" id="resume-btn" download>Download Logic Core (.pdf)</a>
                     </div>
                 </div>
@@ -687,7 +682,7 @@
                     <h2>Education_Log</h2>
                     <div class="timeline-item glass-panel">
                         <div class="timeline-item-header"><h3>B.E. in Computer Engineering</h3><span>2025 - Present</span></div>
-                        <p>St. Francis Institute of Technology. Expanding logic core and advanced systems architecture.</p>
+                        <p>Xavier Institute of Engineering. Expanding logic core and advanced systems architecture.</p>
                     </div>
                     <div class="timeline-item glass-panel">
                         <div class="timeline-item-header"><h3>Diploma in Engineering</h3><span>2022 - 2025</span></div>
@@ -735,73 +730,71 @@
                 </div>
                 
                 <div class="project-grid">
-                    <!-- Project Card -->
-                    <div class="project-card" data-category="mobile">
+                    <!-- Project Card: Expense Tracker -->
+                    <div class="project-card" data-category="webapp">
                         <div class="project-card-inner">
                             <div class="glare"></div>
                             <div class="project-image-container">
-                                <!-- PASTE Project Image URL below -->
-                                <img src="https://placehold.co/600x400/0f172a/0ea5e9?text=Cloud+Data+Lake" alt="Cloud Data Lake">
+                                <img src="https://placehold.co/600x400/0f172a/0ea5e9?text=Expense+Tracker" alt="Expense Tracker">
                             </div>
                             <div class="project-content">
-                                <h3>Distributed Data Lake</h3>
-                                <p class="project-desc">A highly scalable big data storage solution engineered with Hadoop, Spark, and AWS S3 for enterprise analytics.</p>
-                                <button class="tech-dive-btn" data-title="Distributed Data Lake">✨ Tech Deep Dive</button>
+                                <h3>Expense Tracker</h3>
+                                <p class="project-desc">A high-performance financial interface engineered to visualize personal telemetry and track budgeting in real-time.</p>
+                                <button class="tech-dive-btn" data-title="Expense Tracker">✨ Tech Deep Dive</button>
                                 <div class="project-link-wrapper">
-                                    <!-- PASTE Project Link below -->
-                                    <a href="https://zionlopes.github.io/expense-tracker/" target="_blank" rel="noopener noreferrer" class="project-open-btn">Execute Cluster ↗</a>
+                                    <a href="https://zionlopes.github.io/expense-tracker/" target="_blank" rel="noopener noreferrer" class="project-open-btn">Open Project ↗</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Project Card -->
+                    <!-- Project Card: Arogya2030 -->
                     <div class="project-card" data-category="webapp">
                         <div class="project-card-inner">
                             <div class="glare"></div>
                             <div class="project-image-container">
-                                <img src="https://placehold.co/600x400/1e1b4b/a855f7?text=API+Gateway" alt="API Gateway">
+                                <img src="https://placehold.co/600x400/1e1b4b/a855f7?text=Arogya+2030" alt="Arogya2030">
                             </div>
                             <div class="project-content">
-                                <h3>Cloud-Native API Gateway</h3>
-                                <p class="project-desc">A microservices architecture routing system built on Kubernetes and Docker for seamless high-traffic management.</p>
-                                <button class="tech-dive-btn" data-title="Cloud-Native API Gateway">✨ Tech Deep Dive</button>
+                                <h3>Arogya2030</h3>
+                                <p class="project-desc">A visionary healthcare accessibility platform built with modern web technologies for a seamless, scalable medical user experience.</p>
+                                <button class="tech-dive-btn" data-title="Arogya2030">✨ Tech Deep Dive</button>
                                 <div class="project-link-wrapper">
-                                    <a href="https://zionlopes.github.io/arogya2030/" target="_blank" rel="noopener noreferrer" class="project-open-btn">View Source ↗</a>
+                                    <a href="https://zionlopes.github.io/arogya2030/" target="_blank" rel="noopener noreferrer" class="project-open-btn">Open Project ↗</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project Card -->
-                    <div class="project-card" data-category="mobile">
+                    <!-- Project Card: Gym Website -->
+                    <div class="project-card" data-category="webapp">
                         <div class="project-card-inner">
                             <div class="glare"></div>
                             <div class="project-image-container">
-                                <img src="https://placehold.co/600x400/052e16/10b981?text=Telemetry+Pipeline" alt="Telemetry Pipeline">
+                                <img src="https://placehold.co/600x400/052e16/10b981?text=Gym+Platform" alt="Gym Website">
                             </div>
                             <div class="project-content">
-                                <h3>Real-Time Telemetry Pipeline</h3>
-                                <p class="project-desc">Stream processing pipeline utilizing Apache Kafka and PostgreSQL deployed on GCP to handle millions of events per second.</p>
-                                <button class="tech-dive-btn" data-title="Real-Time Telemetry Pipeline">✨ Tech Deep Dive</button>
+                                <h3>Gym Website</h3>
+                                <p class="project-desc">A fully responsive, high-energy fitness platform featuring dynamic class schedules and a bold, modern UI.</p>
+                                <button class="tech-dive-btn" data-title="Gym Website">✨ Tech Deep Dive</button>
                                 <div class="project-link-wrapper">
-                                    <a href="https://zionlopes.github.io/gym-website/index.html" target="_blank" rel="noopener noreferrer" class="project-open-btn">Access Node ↗</a>
+                                    <a href="https://zionlopes.github.io/gym-website/index.html" target="_blank" rel="noopener noreferrer" class="project-open-btn">Open Project ↗</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project Card -->
-                    <div class="project-card" data-category="webapp">
+                    <!-- Project Card: Healthcare Chatbot -->
+                    <div class="project-card" data-category="ai">
                         <div class="project-card-inner">
                             <div class="glare"></div>
                             <div class="project-image-container">
                                 <img src="https://placehold.co/600x400/312e81/f472b6?text=AI+Health+Bot" alt="Healthcare Chatbot">
                             </div>
                             <div class="project-content">
-                                <h3>Healthcare AI Chatbot</h3>
+                                <h3>Healthcare Chatbot</h3>
                                 <p class="project-desc">An intelligent, LLM-powered healthcare assistant designed to triage symptoms and guide users with medical telemetry.</p>
-                                <button class="tech-dive-btn" data-title="Healthcare AI Chatbot">✨ Tech Deep Dive</button>
+                                <button class="tech-dive-btn" data-title="Healthcare Chatbot">✨ Tech Deep Dive</button>
                                 <div class="project-link-wrapper">
                                     <a href="https://healthcare-chatbot-ivory.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-open-btn">Open Project ↗</a>
                                 </div>
@@ -864,7 +857,7 @@
             <button id="oracle-chat-close" class="ai-chat-close">✕</button>
         </div>
         <div class="ai-chat-messages" id="oracle-messages">
-            <div class="ai-msg oracle">System online. I am ORACLE, Zion's AI representative. You can ask me about his tech stack (AWS, Kubernetes, Data Pipelines), work experience, or academic background. How can I assist you?</div>
+            <div class="ai-msg oracle">System online. I am ORACLE, Zion's AI representative. You can ask me about his tech stack (AWS, Kubernetes, DBMS, Data Pipelines), work experience, or academic background. How can I assist you?</div>
         </div>
         <form id="oracle-form" class="ai-chat-input">
             <input type="text" id="oracle-input" placeholder="Query the Oracle..." autocomplete="off">
@@ -880,44 +873,30 @@
     </footer>
     
     <script type="module">
+        // Import Firebase exactly as requested (using CDN links so browsers can execute the code natively)
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
         import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
-        // --- FIREBASE CONFIGURATION ---
-        let app, db, storage, auth, targetCollectionPath = "messages";
+        // --- FIREBASE CONFIGURATION (Exactly as provided) ---
+        const firebaseConfig = {
+            apiKey: "AIzaSyBySDXt_DauujKnTV077DF2GLWeMr27XuI",
+            authDomain: "zion-lopes-portfolio.firebaseapp.com",
+            databaseURL: "https://zion-lopes-portfolio-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "zion-lopes-portfolio",
+            storageBucket: "zion-lopes-portfolio.firebasestorage.app",
+            messagingSenderId: "1011067746147",
+            appId: "1:1011067746147:web:4432e009e79456331c8556"
+        };
 
-        try {
-            // Priority 1: Use Canvas Environment config if it exists (Ensures Immersive Preview Works)
-            if (typeof __firebase_config !== 'undefined') {
-                const canvasConfig = JSON.parse(__firebase_config);
-                app = initializeApp(canvasConfig);
-                const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-                targetCollectionPath = `artifacts/${appId}/public/data/messages`;
-            } else {
-                // Priority 2: Use Your Personal Project Config (Used when hosted outside)
-                const firebaseConfig = {
-                    apiKey: "AIzaSyBySDXt_DauujKnTV077DF2GLWeMr27XuI",
-                    authDomain: "zion-lopes-portfolio.firebaseapp.com",
-                    databaseURL: "https://zion-lopes-portfolio-default-rtdb.asia-southeast1.firebasedatabase.app",
-                    projectId: "zion-lopes-portfolio",
-                    storageBucket: "zion-lopes-portfolio.firebasestorage.app",
-                    messagingSenderId: "1011067746147",
-                    appId: "1:1011067746147:web:4432e009e79456331c8556"
-                };
-                app = initializeApp(firebaseConfig);
-            }
-            
-            db = getFirestore(app);
-            storage = getStorage(app);
-            auth = getAuth(app);
-        } catch (e) {
-            console.error("Firebase Initialization Error:", e);
-        }
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const storage = getStorage(app);
+        const auth = getAuth(app);
 
         // --- GEMINI API CONFIGURATION ---
-        const apiKey = ""; // API Key handled by runtime injection
+        const apiKey = "AQ.Ab8RN6LlOI580BLI6m3ct5b9PNT4uTaxmbNUaJnk9y3u-ueWFQ";
         const geminiModel = "gemini-2.5-flash-preview-09-2025";
         
         async function fetchGeminiWithRetry(payload, retries = 5) {
@@ -942,15 +921,11 @@
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
-            
-            // Wait for Auth to complete before interacting with DB
+
+            // Wait for Anonymous Auth to complete before interacting with DB
             if (auth) {
                 try {
-                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                        await signInWithCustomToken(auth, __initial_auth_token);
-                    } else {
-                        await signInAnonymously(auth);
-                    }
+                    await signInAnonymously(auth);
                 } catch (err) {
                     console.error("Auth failed:", err);
                 }
@@ -996,10 +971,10 @@
                     e.preventDefault();
                     const submitBtn = contactForm.querySelector('.submit-btn');
                     submitBtn.textContent = 'Transmitting...';
-                    if (firebaseAlert) firebaseAlert.style.display = 'none';
+                    firebaseAlert.style.display = 'none'; // Hide alert on retry
                     
                     try {
-                        await addDoc(collection(db, targetCollectionPath), {
+                        await addDoc(collection(db, "messages"), {
                             name: contactForm.name.value,
                             email: contactForm.email.value,
                             message: contactForm.message.value,
@@ -1010,9 +985,9 @@
                         setTimeout(() => { submitBtn.textContent = 'Transmit Data'; contactForm.reset(); }, 3000);
                     } catch (error) {
                         console.error("Firebase Error:", error.message);
-                        if (error.message.includes("permission")) {
+                        if (error.message.includes("permission") || error.message.includes("Missing")) {
                             submitBtn.textContent = 'Permission Denied';
-                            if (firebaseAlert) firebaseAlert.style.display = 'block';
+                            firebaseAlert.style.display = 'block'; // Show the custom alert asking user to fix rules
                         } else {
                             submitBtn.textContent = 'Transmission Failed';
                         }
@@ -1031,7 +1006,7 @@
             const oracleSendBtn = document.getElementById('oracle-send');
 
             const oracleSystemPrompt = `You are ORACLE, the AI assistant for Zion Lopes's portfolio. 
-            Zion is a Cloud Computing and Big Data Specialist & 2nd-year Computer Engineering student at St. Francis Institute of Technology (2025-Present). 
+            Zion is a Cloud Computing, Big Data, and DBMS Specialist & Computer Engineering student at Xavier Institute of Engineering (2025-Present). 
             Experience: Asst. Manager at Brisk Bake Vasai (Jun 2025-Present), Cloud Infrastructure Intern at IWM BUZZ (Jun-Aug 2024). 
             Skills: AWS, Google Cloud, Docker, Kubernetes, MongoDB, PostgreSQL, Hadoop, Spark, Python. 
             Respond concisely in a helpful, slightly futuristic, and professional tone. Keep answers under 3 sentences. Do not use markdown formatting.`;
@@ -1061,48 +1036,42 @@
                 if (indicator) indicator.remove();
             }
 
-            if (oracleBtn && oraclePanel) {
-                oracleBtn.addEventListener('click', () => oraclePanel.classList.add('open'));
-            }
-            if (oracleClose && oraclePanel) {
-                oracleClose.addEventListener('click', () => oraclePanel.classList.remove('open'));
-            }
+            oracleBtn.addEventListener('click', () => oraclePanel.classList.add('open'));
+            oracleClose.addEventListener('click', () => oraclePanel.classList.remove('open'));
 
-            if (oracleForm && oracleInput && oracleSendBtn && oracleMessages) {
-                oracleForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    const userText = oracleInput.value.trim();
-                    if (!userText) return;
+            oracleForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const userText = oracleInput.value.trim();
+                if (!userText) return;
 
-                    appendMessage(userText, 'user');
-                    oracleInput.value = '';
-                    oracleInput.disabled = true;
-                    oracleSendBtn.disabled = true;
+                appendMessage(userText, 'user');
+                oracleInput.value = '';
+                oracleInput.disabled = true;
+                oracleSendBtn.disabled = true;
 
-                    oracleHistory.push({ role: "user", parts: [{ text: userText }] });
-                    addTypingIndicator();
+                oracleHistory.push({ role: "user", parts: [{ text: userText }] });
+                addTypingIndicator();
 
-                    const payload = {
-                        systemInstruction: { parts: [{ text: oracleSystemPrompt }] },
-                        contents: oracleHistory
-                    };
+                const payload = {
+                    systemInstruction: { parts: [{ text: oracleSystemPrompt }] },
+                    contents: oracleHistory
+                };
 
-                    try {
-                        const aiResponse = await fetchGeminiWithRetry(payload);
-                        removeTypingIndicator();
-                        appendMessage(aiResponse, 'oracle');
-                        oracleHistory.push({ role: "model", parts: [{ text: aiResponse }] });
-                    } catch (error) {
-                        removeTypingIndicator();
-                        appendMessage("Connection error. The neural network is currently unreachable. Please try again later.", 'oracle');
-                        oracleHistory.pop(); // Remove failed user message from history array
-                    } finally {
-                        oracleInput.disabled = false;
-                        oracleSendBtn.disabled = false;
-                        oracleInput.focus();
-                    }
-                });
-            }
+                try {
+                    const aiResponse = await fetchGeminiWithRetry(payload);
+                    removeTypingIndicator();
+                    appendMessage(aiResponse, 'oracle');
+                    oracleHistory.push({ role: "model", parts: [{ text: aiResponse }] });
+                } catch (error) {
+                    removeTypingIndicator();
+                    appendMessage("Connection error. The neural network is currently unreachable. Please try again later.", 'oracle');
+                    oracleHistory.pop(); // Remove failed user message from history array
+                } finally {
+                    oracleInput.disabled = false;
+                    oracleSendBtn.disabled = false;
+                    oracleInput.focus();
+                }
+            });
 
             // --- AI FEATURE 2: MESSAGE ENHANCER ---
             const enhanceBtn = document.getElementById('enhance-msg-btn');
@@ -1123,7 +1092,7 @@
                     messageBox.disabled = true;
 
                     const enhancePrompt = `You are a professional business writing AI. 
-                    Rewrite the following drafted message intended for a cloud architecture and big data specialist named Zion Lopes. 
+                    Rewrite the following drafted message intended for a cloud architecture, DBMS, and big data specialist named Zion Lopes. 
                     Fix grammar, elevate the vocabulary to sound highly professional, polite, and engaging, but keep it concise and direct. 
                     Output ONLY the final rewritten message without quotes or placeholders.
                     
@@ -1162,13 +1131,13 @@
 
                     ideationBtn.textContent = 'Synthesizing...';
                     ideationBtn.disabled = true;
-                    ideationResult.textContent = `Querying neural network for cloud architecture concepts in [${topic}]...`;
+                    ideationResult.textContent = `Querying neural network for DBMS/Cloud architecture concepts in [${topic}]...`;
 
-                    const prompt = `You are an elite cloud and big data software architect. The user wants a highly scalable backend/data pipeline solution in the following industry/topic: "${topic}". 
-                    Generate 1 highly innovative, futuristic architecture idea that Zion Lopes (a Cloud & Big Data specialist) could build for them.
+                    const prompt = `You are an elite cloud and big data software architect. The user wants a highly scalable backend, database management system (DBMS), or data pipeline solution in the following industry/topic: "${topic}". 
+                    Generate 1 highly innovative, futuristic architecture idea that Zion Lopes (a Cloud/DBMS/Big Data specialist) could build for them.
                     Format your response in 2 short sentences: 
                     Sentence 1: The App Name and core cloud/data concept. 
-                    Sentence 2: The primary technical feature that makes it scalable and standout.
+                    Sentence 2: The primary technical feature (AWS, Databases, Spark, etc) that makes it scalable and standout.
                     Do not use any markdown formatting.`;
 
                     try {
@@ -1180,7 +1149,7 @@
                         // Auto-fill contact form to encourage lead conversion
                         const msgBox = document.getElementById('message');
                         if(msgBox && msgBox.value === "") {
-                            msgBox.value = `I loved the concept for the ${topic} cloud architecture:\n\n"${response}"\n\nLet's talk about building this!`;
+                            msgBox.value = `I loved the concept for the ${topic} architecture:\n\n"${response}"\n\nLet's talk about building this!`;
                         }
                     } catch (e) {
                         ideationResult.textContent = "> ERROR: Synthesis failed. Please check connection.";
@@ -1208,8 +1177,8 @@
 
                     const prompt = `You are a futuristic AI system analyzing a portfolio project called "${title}". 
                     Its basic description is: "${originalDesc}". 
-                    Write a 2-sentence "Tech Deep Dive" explaining the hypothetical underlying cloud architecture, 
-                    mentioning distributed systems, big data pipelines, or containerization (e.g. AWS, Kubernetes, Spark, Kafka). 
+                    Write a 2-sentence "Tech Deep Dive" explaining the hypothetical underlying database management system (DBMS) and cloud architecture, 
+                    mentioning distributed databases, data pipelines, or containerization (e.g. AWS, Kubernetes, MongoDB, PostgreSQL, Kafka). 
                     Sound highly technical and professional. Do not use markdown.`;
 
                     try {
@@ -1282,7 +1251,7 @@
             });
 
             // --- Terminal Typing Effect ---
-            const textToType = "I architect scalable cloud infrastructure and engineer big data pipelines, transforming raw data into high-performance systems.";
+            const textToType = "I architect scalable cloud infrastructure, engineer big data pipelines, and design high-performance Database Management Systems (DBMS).";
             const typingElement = document.getElementById('typing-text');
             let isTyping = false;
 
